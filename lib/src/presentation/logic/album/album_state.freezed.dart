@@ -18,22 +18,22 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$AlbumStateTearOff {
   const _$AlbumStateTearOff();
 
-  JokeStateInitial initial() {
-    return const JokeStateInitial();
+  AlbumStateInitial initial() {
+    return const AlbumStateInitial();
   }
 
-  JokeStateLoading loading() {
-    return const JokeStateLoading();
+  AlbumStateLoading loading() {
+    return const AlbumStateLoading();
   }
 
-  JokeStateData data(AlbumState album) {
-    return JokeStateData(
+  AlbumStateData data(List<IAlbum> album) {
+    return AlbumStateData(
       album,
     );
   }
 
-  JokeStateError error({String? message}) {
-    return JokeStateError(
+  AlbumStateError error({String? message}) {
+    return AlbumStateError(
       message: message,
     );
   }
@@ -48,7 +48,7 @@ mixin _$AlbumState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AlbumState album) data,
+    required TResult Function(List<IAlbum> album) data,
     required TResult Function(String? message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -56,7 +56,7 @@ mixin _$AlbumState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AlbumState album)? data,
+    TResult Function(List<IAlbum> album)? data,
     TResult Function(String? message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -64,33 +64,33 @@ mixin _$AlbumState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AlbumState album)? data,
+    TResult Function(List<IAlbum> album)? data,
     TResult Function(String? message)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(JokeStateInitial value) initial,
-    required TResult Function(JokeStateLoading value) loading,
-    required TResult Function(JokeStateData value) data,
-    required TResult Function(JokeStateError value) error,
+    required TResult Function(AlbumStateInitial value) initial,
+    required TResult Function(AlbumStateLoading value) loading,
+    required TResult Function(AlbumStateData value) data,
+    required TResult Function(AlbumStateError value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(JokeStateInitial value)? initial,
-    TResult Function(JokeStateLoading value)? loading,
-    TResult Function(JokeStateData value)? data,
-    TResult Function(JokeStateError value)? error,
+    TResult Function(AlbumStateInitial value)? initial,
+    TResult Function(AlbumStateLoading value)? loading,
+    TResult Function(AlbumStateData value)? data,
+    TResult Function(AlbumStateError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(JokeStateInitial value)? initial,
-    TResult Function(JokeStateLoading value)? loading,
-    TResult Function(JokeStateData value)? data,
-    TResult Function(JokeStateError value)? error,
+    TResult Function(AlbumStateInitial value)? initial,
+    TResult Function(AlbumStateLoading value)? loading,
+    TResult Function(AlbumStateData value)? data,
+    TResult Function(AlbumStateError value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,28 +113,28 @@ class _$AlbumStateCopyWithImpl<$Res> implements $AlbumStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class $JokeStateInitialCopyWith<$Res> {
-  factory $JokeStateInitialCopyWith(
-          JokeStateInitial value, $Res Function(JokeStateInitial) then) =
-      _$JokeStateInitialCopyWithImpl<$Res>;
+abstract class $AlbumStateInitialCopyWith<$Res> {
+  factory $AlbumStateInitialCopyWith(
+          AlbumStateInitial value, $Res Function(AlbumStateInitial) then) =
+      _$AlbumStateInitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$JokeStateInitialCopyWithImpl<$Res>
+class _$AlbumStateInitialCopyWithImpl<$Res>
     extends _$AlbumStateCopyWithImpl<$Res>
-    implements $JokeStateInitialCopyWith<$Res> {
-  _$JokeStateInitialCopyWithImpl(
-      JokeStateInitial _value, $Res Function(JokeStateInitial) _then)
-      : super(_value, (v) => _then(v as JokeStateInitial));
+    implements $AlbumStateInitialCopyWith<$Res> {
+  _$AlbumStateInitialCopyWithImpl(
+      AlbumStateInitial _value, $Res Function(AlbumStateInitial) _then)
+      : super(_value, (v) => _then(v as AlbumStateInitial));
 
   @override
-  JokeStateInitial get _value => super._value as JokeStateInitial;
+  AlbumStateInitial get _value => super._value as AlbumStateInitial;
 }
 
 /// @nodoc
 
-class _$JokeStateInitial implements JokeStateInitial {
-  const _$JokeStateInitial();
+class _$AlbumStateInitial implements AlbumStateInitial {
+  const _$AlbumStateInitial();
 
   @override
   String toString() {
@@ -144,7 +144,7 @@ class _$JokeStateInitial implements JokeStateInitial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is JokeStateInitial);
+        (other.runtimeType == runtimeType && other is AlbumStateInitial);
   }
 
   @override
@@ -155,7 +155,7 @@ class _$JokeStateInitial implements JokeStateInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AlbumState album) data,
+    required TResult Function(List<IAlbum> album) data,
     required TResult Function(String? message) error,
   }) {
     return initial();
@@ -166,7 +166,7 @@ class _$JokeStateInitial implements JokeStateInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AlbumState album)? data,
+    TResult Function(List<IAlbum> album)? data,
     TResult Function(String? message)? error,
   }) {
     return initial?.call();
@@ -177,7 +177,7 @@ class _$JokeStateInitial implements JokeStateInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AlbumState album)? data,
+    TResult Function(List<IAlbum> album)? data,
     TResult Function(String? message)? error,
     required TResult orElse(),
   }) {
@@ -190,10 +190,10 @@ class _$JokeStateInitial implements JokeStateInitial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(JokeStateInitial value) initial,
-    required TResult Function(JokeStateLoading value) loading,
-    required TResult Function(JokeStateData value) data,
-    required TResult Function(JokeStateError value) error,
+    required TResult Function(AlbumStateInitial value) initial,
+    required TResult Function(AlbumStateLoading value) loading,
+    required TResult Function(AlbumStateData value) data,
+    required TResult Function(AlbumStateError value) error,
   }) {
     return initial(this);
   }
@@ -201,10 +201,10 @@ class _$JokeStateInitial implements JokeStateInitial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(JokeStateInitial value)? initial,
-    TResult Function(JokeStateLoading value)? loading,
-    TResult Function(JokeStateData value)? data,
-    TResult Function(JokeStateError value)? error,
+    TResult Function(AlbumStateInitial value)? initial,
+    TResult Function(AlbumStateLoading value)? loading,
+    TResult Function(AlbumStateData value)? data,
+    TResult Function(AlbumStateError value)? error,
   }) {
     return initial?.call(this);
   }
@@ -212,10 +212,10 @@ class _$JokeStateInitial implements JokeStateInitial {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(JokeStateInitial value)? initial,
-    TResult Function(JokeStateLoading value)? loading,
-    TResult Function(JokeStateData value)? data,
-    TResult Function(JokeStateError value)? error,
+    TResult Function(AlbumStateInitial value)? initial,
+    TResult Function(AlbumStateLoading value)? loading,
+    TResult Function(AlbumStateData value)? data,
+    TResult Function(AlbumStateError value)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -225,33 +225,33 @@ class _$JokeStateInitial implements JokeStateInitial {
   }
 }
 
-abstract class JokeStateInitial implements AlbumState {
-  const factory JokeStateInitial() = _$JokeStateInitial;
+abstract class AlbumStateInitial implements AlbumState {
+  const factory AlbumStateInitial() = _$AlbumStateInitial;
 }
 
 /// @nodoc
-abstract class $JokeStateLoadingCopyWith<$Res> {
-  factory $JokeStateLoadingCopyWith(
-          JokeStateLoading value, $Res Function(JokeStateLoading) then) =
-      _$JokeStateLoadingCopyWithImpl<$Res>;
+abstract class $AlbumStateLoadingCopyWith<$Res> {
+  factory $AlbumStateLoadingCopyWith(
+          AlbumStateLoading value, $Res Function(AlbumStateLoading) then) =
+      _$AlbumStateLoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$JokeStateLoadingCopyWithImpl<$Res>
+class _$AlbumStateLoadingCopyWithImpl<$Res>
     extends _$AlbumStateCopyWithImpl<$Res>
-    implements $JokeStateLoadingCopyWith<$Res> {
-  _$JokeStateLoadingCopyWithImpl(
-      JokeStateLoading _value, $Res Function(JokeStateLoading) _then)
-      : super(_value, (v) => _then(v as JokeStateLoading));
+    implements $AlbumStateLoadingCopyWith<$Res> {
+  _$AlbumStateLoadingCopyWithImpl(
+      AlbumStateLoading _value, $Res Function(AlbumStateLoading) _then)
+      : super(_value, (v) => _then(v as AlbumStateLoading));
 
   @override
-  JokeStateLoading get _value => super._value as JokeStateLoading;
+  AlbumStateLoading get _value => super._value as AlbumStateLoading;
 }
 
 /// @nodoc
 
-class _$JokeStateLoading implements JokeStateLoading {
-  const _$JokeStateLoading();
+class _$AlbumStateLoading implements AlbumStateLoading {
+  const _$AlbumStateLoading();
 
   @override
   String toString() {
@@ -261,7 +261,7 @@ class _$JokeStateLoading implements JokeStateLoading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is JokeStateLoading);
+        (other.runtimeType == runtimeType && other is AlbumStateLoading);
   }
 
   @override
@@ -272,7 +272,7 @@ class _$JokeStateLoading implements JokeStateLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AlbumState album) data,
+    required TResult Function(List<IAlbum> album) data,
     required TResult Function(String? message) error,
   }) {
     return loading();
@@ -283,7 +283,7 @@ class _$JokeStateLoading implements JokeStateLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AlbumState album)? data,
+    TResult Function(List<IAlbum> album)? data,
     TResult Function(String? message)? error,
   }) {
     return loading?.call();
@@ -294,7 +294,7 @@ class _$JokeStateLoading implements JokeStateLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AlbumState album)? data,
+    TResult Function(List<IAlbum> album)? data,
     TResult Function(String? message)? error,
     required TResult orElse(),
   }) {
@@ -307,10 +307,10 @@ class _$JokeStateLoading implements JokeStateLoading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(JokeStateInitial value) initial,
-    required TResult Function(JokeStateLoading value) loading,
-    required TResult Function(JokeStateData value) data,
-    required TResult Function(JokeStateError value) error,
+    required TResult Function(AlbumStateInitial value) initial,
+    required TResult Function(AlbumStateLoading value) loading,
+    required TResult Function(AlbumStateData value) data,
+    required TResult Function(AlbumStateError value) error,
   }) {
     return loading(this);
   }
@@ -318,10 +318,10 @@ class _$JokeStateLoading implements JokeStateLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(JokeStateInitial value)? initial,
-    TResult Function(JokeStateLoading value)? loading,
-    TResult Function(JokeStateData value)? data,
-    TResult Function(JokeStateError value)? error,
+    TResult Function(AlbumStateInitial value)? initial,
+    TResult Function(AlbumStateLoading value)? loading,
+    TResult Function(AlbumStateData value)? data,
+    TResult Function(AlbumStateError value)? error,
   }) {
     return loading?.call(this);
   }
@@ -329,10 +329,10 @@ class _$JokeStateLoading implements JokeStateLoading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(JokeStateInitial value)? initial,
-    TResult Function(JokeStateLoading value)? loading,
-    TResult Function(JokeStateData value)? data,
-    TResult Function(JokeStateError value)? error,
+    TResult Function(AlbumStateInitial value)? initial,
+    TResult Function(AlbumStateLoading value)? loading,
+    TResult Function(AlbumStateData value)? data,
+    TResult Function(AlbumStateError value)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -342,57 +342,48 @@ class _$JokeStateLoading implements JokeStateLoading {
   }
 }
 
-abstract class JokeStateLoading implements AlbumState {
-  const factory JokeStateLoading() = _$JokeStateLoading;
+abstract class AlbumStateLoading implements AlbumState {
+  const factory AlbumStateLoading() = _$AlbumStateLoading;
 }
 
 /// @nodoc
-abstract class $JokeStateDataCopyWith<$Res> {
-  factory $JokeStateDataCopyWith(
-          JokeStateData value, $Res Function(JokeStateData) then) =
-      _$JokeStateDataCopyWithImpl<$Res>;
-  $Res call({AlbumState album});
-
-  $AlbumStateCopyWith<$Res> get album;
+abstract class $AlbumStateDataCopyWith<$Res> {
+  factory $AlbumStateDataCopyWith(
+          AlbumStateData value, $Res Function(AlbumStateData) then) =
+      _$AlbumStateDataCopyWithImpl<$Res>;
+  $Res call({List<IAlbum> album});
 }
 
 /// @nodoc
-class _$JokeStateDataCopyWithImpl<$Res> extends _$AlbumStateCopyWithImpl<$Res>
-    implements $JokeStateDataCopyWith<$Res> {
-  _$JokeStateDataCopyWithImpl(
-      JokeStateData _value, $Res Function(JokeStateData) _then)
-      : super(_value, (v) => _then(v as JokeStateData));
+class _$AlbumStateDataCopyWithImpl<$Res> extends _$AlbumStateCopyWithImpl<$Res>
+    implements $AlbumStateDataCopyWith<$Res> {
+  _$AlbumStateDataCopyWithImpl(
+      AlbumStateData _value, $Res Function(AlbumStateData) _then)
+      : super(_value, (v) => _then(v as AlbumStateData));
 
   @override
-  JokeStateData get _value => super._value as JokeStateData;
+  AlbumStateData get _value => super._value as AlbumStateData;
 
   @override
   $Res call({
     Object? album = freezed,
   }) {
-    return _then(JokeStateData(
+    return _then(AlbumStateData(
       album == freezed
           ? _value.album
           : album // ignore: cast_nullable_to_non_nullable
-              as AlbumState,
+              as List<IAlbum>,
     ));
-  }
-
-  @override
-  $AlbumStateCopyWith<$Res> get album {
-    return $AlbumStateCopyWith<$Res>(_value.album, (value) {
-      return _then(_value.copyWith(album: value));
-    });
   }
 }
 
 /// @nodoc
 
-class _$JokeStateData implements JokeStateData {
-  const _$JokeStateData(this.album);
+class _$AlbumStateData implements AlbumStateData {
+  const _$AlbumStateData(this.album);
 
   @override
-  final AlbumState album;
+  final List<IAlbum> album;
 
   @override
   String toString() {
@@ -403,7 +394,7 @@ class _$JokeStateData implements JokeStateData {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is JokeStateData &&
+            other is AlbumStateData &&
             const DeepCollectionEquality().equals(other.album, album));
   }
 
@@ -413,15 +404,15 @@ class _$JokeStateData implements JokeStateData {
 
   @JsonKey(ignore: true)
   @override
-  $JokeStateDataCopyWith<JokeStateData> get copyWith =>
-      _$JokeStateDataCopyWithImpl<JokeStateData>(this, _$identity);
+  $AlbumStateDataCopyWith<AlbumStateData> get copyWith =>
+      _$AlbumStateDataCopyWithImpl<AlbumStateData>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AlbumState album) data,
+    required TResult Function(List<IAlbum> album) data,
     required TResult Function(String? message) error,
   }) {
     return data(album);
@@ -432,7 +423,7 @@ class _$JokeStateData implements JokeStateData {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AlbumState album)? data,
+    TResult Function(List<IAlbum> album)? data,
     TResult Function(String? message)? error,
   }) {
     return data?.call(album);
@@ -443,7 +434,7 @@ class _$JokeStateData implements JokeStateData {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AlbumState album)? data,
+    TResult Function(List<IAlbum> album)? data,
     TResult Function(String? message)? error,
     required TResult orElse(),
   }) {
@@ -456,10 +447,10 @@ class _$JokeStateData implements JokeStateData {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(JokeStateInitial value) initial,
-    required TResult Function(JokeStateLoading value) loading,
-    required TResult Function(JokeStateData value) data,
-    required TResult Function(JokeStateError value) error,
+    required TResult Function(AlbumStateInitial value) initial,
+    required TResult Function(AlbumStateLoading value) loading,
+    required TResult Function(AlbumStateData value) data,
+    required TResult Function(AlbumStateError value) error,
   }) {
     return data(this);
   }
@@ -467,10 +458,10 @@ class _$JokeStateData implements JokeStateData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(JokeStateInitial value)? initial,
-    TResult Function(JokeStateLoading value)? loading,
-    TResult Function(JokeStateData value)? data,
-    TResult Function(JokeStateError value)? error,
+    TResult Function(AlbumStateInitial value)? initial,
+    TResult Function(AlbumStateLoading value)? loading,
+    TResult Function(AlbumStateData value)? data,
+    TResult Function(AlbumStateError value)? error,
   }) {
     return data?.call(this);
   }
@@ -478,10 +469,10 @@ class _$JokeStateData implements JokeStateData {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(JokeStateInitial value)? initial,
-    TResult Function(JokeStateLoading value)? loading,
-    TResult Function(JokeStateData value)? data,
-    TResult Function(JokeStateError value)? error,
+    TResult Function(AlbumStateInitial value)? initial,
+    TResult Function(AlbumStateLoading value)? loading,
+    TResult Function(AlbumStateData value)? data,
+    TResult Function(AlbumStateError value)? error,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -491,38 +482,38 @@ class _$JokeStateData implements JokeStateData {
   }
 }
 
-abstract class JokeStateData implements AlbumState {
-  const factory JokeStateData(AlbumState album) = _$JokeStateData;
+abstract class AlbumStateData implements AlbumState {
+  const factory AlbumStateData(List<IAlbum> album) = _$AlbumStateData;
 
-  AlbumState get album;
+  List<IAlbum> get album;
   @JsonKey(ignore: true)
-  $JokeStateDataCopyWith<JokeStateData> get copyWith =>
+  $AlbumStateDataCopyWith<AlbumStateData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $JokeStateErrorCopyWith<$Res> {
-  factory $JokeStateErrorCopyWith(
-          JokeStateError value, $Res Function(JokeStateError) then) =
-      _$JokeStateErrorCopyWithImpl<$Res>;
+abstract class $AlbumStateErrorCopyWith<$Res> {
+  factory $AlbumStateErrorCopyWith(
+          AlbumStateError value, $Res Function(AlbumStateError) then) =
+      _$AlbumStateErrorCopyWithImpl<$Res>;
   $Res call({String? message});
 }
 
 /// @nodoc
-class _$JokeStateErrorCopyWithImpl<$Res> extends _$AlbumStateCopyWithImpl<$Res>
-    implements $JokeStateErrorCopyWith<$Res> {
-  _$JokeStateErrorCopyWithImpl(
-      JokeStateError _value, $Res Function(JokeStateError) _then)
-      : super(_value, (v) => _then(v as JokeStateError));
+class _$AlbumStateErrorCopyWithImpl<$Res> extends _$AlbumStateCopyWithImpl<$Res>
+    implements $AlbumStateErrorCopyWith<$Res> {
+  _$AlbumStateErrorCopyWithImpl(
+      AlbumStateError _value, $Res Function(AlbumStateError) _then)
+      : super(_value, (v) => _then(v as AlbumStateError));
 
   @override
-  JokeStateError get _value => super._value as JokeStateError;
+  AlbumStateError get _value => super._value as AlbumStateError;
 
   @override
   $Res call({
     Object? message = freezed,
   }) {
-    return _then(JokeStateError(
+    return _then(AlbumStateError(
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -533,8 +524,8 @@ class _$JokeStateErrorCopyWithImpl<$Res> extends _$AlbumStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$JokeStateError implements JokeStateError {
-  const _$JokeStateError({this.message});
+class _$AlbumStateError implements AlbumStateError {
+  const _$AlbumStateError({this.message});
 
   @override
   final String? message;
@@ -548,7 +539,7 @@ class _$JokeStateError implements JokeStateError {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is JokeStateError &&
+            other is AlbumStateError &&
             const DeepCollectionEquality().equals(other.message, message));
   }
 
@@ -558,15 +549,15 @@ class _$JokeStateError implements JokeStateError {
 
   @JsonKey(ignore: true)
   @override
-  $JokeStateErrorCopyWith<JokeStateError> get copyWith =>
-      _$JokeStateErrorCopyWithImpl<JokeStateError>(this, _$identity);
+  $AlbumStateErrorCopyWith<AlbumStateError> get copyWith =>
+      _$AlbumStateErrorCopyWithImpl<AlbumStateError>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(AlbumState album) data,
+    required TResult Function(List<IAlbum> album) data,
     required TResult Function(String? message) error,
   }) {
     return error(message);
@@ -577,7 +568,7 @@ class _$JokeStateError implements JokeStateError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AlbumState album)? data,
+    TResult Function(List<IAlbum> album)? data,
     TResult Function(String? message)? error,
   }) {
     return error?.call(message);
@@ -588,7 +579,7 @@ class _$JokeStateError implements JokeStateError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(AlbumState album)? data,
+    TResult Function(List<IAlbum> album)? data,
     TResult Function(String? message)? error,
     required TResult orElse(),
   }) {
@@ -601,10 +592,10 @@ class _$JokeStateError implements JokeStateError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(JokeStateInitial value) initial,
-    required TResult Function(JokeStateLoading value) loading,
-    required TResult Function(JokeStateData value) data,
-    required TResult Function(JokeStateError value) error,
+    required TResult Function(AlbumStateInitial value) initial,
+    required TResult Function(AlbumStateLoading value) loading,
+    required TResult Function(AlbumStateData value) data,
+    required TResult Function(AlbumStateError value) error,
   }) {
     return error(this);
   }
@@ -612,10 +603,10 @@ class _$JokeStateError implements JokeStateError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(JokeStateInitial value)? initial,
-    TResult Function(JokeStateLoading value)? loading,
-    TResult Function(JokeStateData value)? data,
-    TResult Function(JokeStateError value)? error,
+    TResult Function(AlbumStateInitial value)? initial,
+    TResult Function(AlbumStateLoading value)? loading,
+    TResult Function(AlbumStateData value)? data,
+    TResult Function(AlbumStateError value)? error,
   }) {
     return error?.call(this);
   }
@@ -623,10 +614,10 @@ class _$JokeStateError implements JokeStateError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(JokeStateInitial value)? initial,
-    TResult Function(JokeStateLoading value)? loading,
-    TResult Function(JokeStateData value)? data,
-    TResult Function(JokeStateError value)? error,
+    TResult Function(AlbumStateInitial value)? initial,
+    TResult Function(AlbumStateLoading value)? loading,
+    TResult Function(AlbumStateData value)? data,
+    TResult Function(AlbumStateError value)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -636,11 +627,11 @@ class _$JokeStateError implements JokeStateError {
   }
 }
 
-abstract class JokeStateError implements AlbumState {
-  const factory JokeStateError({String? message}) = _$JokeStateError;
+abstract class AlbumStateError implements AlbumState {
+  const factory AlbumStateError({String? message}) = _$AlbumStateError;
 
   String? get message;
   @JsonKey(ignore: true)
-  $JokeStateErrorCopyWith<JokeStateError> get copyWith =>
+  $AlbumStateErrorCopyWith<AlbumStateError> get copyWith =>
       throw _privateConstructorUsedError;
 }

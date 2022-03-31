@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
+import 'package:myscreenshots/src/presentation/logic/album/album_provider.dart';
 import 'dart:convert';
 
 import 'presentation/view/pages/main_page.dart';
 
-class ScreenshotsApp extends StatefulWidget {
+class ScreenshotsApp extends ConsumerStatefulWidget {
   @override
-  State<ScreenshotsApp> createState() => _ScreenshotsAppState();
+  ConsumerState<ConsumerStatefulWidget> createState() {
+    return _ScreenshotsAppState();
+  }
 }
 
-class _ScreenshotsAppState extends State<ScreenshotsApp> {
+class _ScreenshotsAppState extends ConsumerState<ScreenshotsApp> {
   // Variables
-  List<String> _listIds = [];
   bool _isLoading = false;
 
   @override
@@ -27,22 +30,21 @@ class _ScreenshotsAppState extends State<ScreenshotsApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: Text("MyScreenshots")),
-        body: MainPage(listIds: _listIds, isLoading: _isLoading),
+        body: MainPage(isLoading: _isLoading),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            ref.read(albumNotifierProvider.notifier).getAlbums();
+          },
+          child: const Icon(Icons.home),
+        ),
       ),
     );
   }
 
   void _loadScreenshotAlbums() async {
-    final response = await http.get(Uri.parse('https://picsum.photos/v2/list'));
-    final json = jsonDecode(response.body);
-
-    List<String> _ids = [];
-    for (var image in json) {
-      _ids.add(image['id']);
-    }
+    await ref.read(albumNotifierProvider.notifier).getAlbums();
 
     setState(() {
-      _listIds = _ids;
       _isLoading = false;
     });
   }
