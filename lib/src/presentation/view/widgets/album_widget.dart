@@ -14,6 +14,8 @@ class AlbumWidget extends StatelessWidget {
   AlbumWidget({required IAlbum album}) : _album = album;
   @override
   Widget build(BuildContext context) {
+    double gridWidth = (MediaQuery.of(context).size.width - 20) / 3;
+    double gridHeight = gridWidth + 33;
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(
@@ -31,6 +33,8 @@ class AlbumWidget extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(5),
               child: FadeInImage(
+                width: gridWidth,
+                height: gridHeight,
                 fit: BoxFit.cover,
                 placeholder: MemoryImage(kTransparentImage),
                 image: AlbumThumbnailProvider(

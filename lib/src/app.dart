@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 import 'package:myscreenshots/src/presentation/logic/album/album_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'dart:convert';
 
 import 'presentation/view/pages/main_page.dart';
@@ -42,10 +45,26 @@ class _ScreenshotsAppState extends ConsumerState<ScreenshotsApp> {
   }
 
   void _loadScreenshotAlbums() async {
-    await ref.read(albumNotifierProvider.notifier).getAlbums();
+    if (await _promptPermissionSetting()) {
+      await ref.read(albumNotifierProvider.notifier).getAlbums();
 
-    setState(() {
-      _isLoading = false;
-    });
+      setState(() {
+        _isLoading = false;
+      });
+    } else {
+      setState(() {
+        _isLoading = false;
+      });
+    }
+  }
+
+  Future<bool> _promptPermissionSetting() async {
+    if (Platform.isIOS &&
+            await Permission.storage.request().isGranted &&
+            await Permission.photos.request().isGranted ||
+        Platform.isAndroid && await Permission.storage.request().isGranted) {
+      return true;
+    }
+    return false;
   }
 }
