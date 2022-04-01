@@ -25,16 +25,26 @@ class MainPage extends ConsumerWidget {
               },
               loading: () => CircularProgressIndicator(),
               data: (data) {
-                return GridView.builder(
-                    itemCount: data.length,
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      mainAxisExtent: 200,
-                    ),
-                    itemBuilder: (context, index) {
-                      return AlbumWidget(album: data[index]);
-                    });
+                return LayoutBuilder(
+                  builder: (context, constraints) {
+                    double gridWidth = (constraints.maxWidth - 20) / 3;
+                    double gridHeight = gridWidth + 33;
+                    double ratio = gridWidth / gridHeight;
+                    return Container(
+                      padding: EdgeInsets.all(5),
+                      child: GridView.builder(
+                          itemCount: data.length,
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3,
+                            mainAxisExtent: 200,
+                          ),
+                          itemBuilder: (context, index) {
+                            return AlbumWidget(album: data[index]);
+                          }),
+                    );
+                  },
+                );
               },
               error: (error) => Text(error.toString()),
             ),

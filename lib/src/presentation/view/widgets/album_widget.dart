@@ -26,15 +26,15 @@ class AlbumWidget extends StatelessWidget {
           ),
         );
       },
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(5),
+      child: Column(
+        children: <Widget>[
+          ClipRRect(
+            borderRadius: BorderRadius.circular(5.0),
+            child: Container(
+              color: Colors.grey[300],
+              height: gridWidth,
+              width: gridWidth,
               child: FadeInImage(
-                width: gridWidth,
-                height: gridHeight,
                 fit: BoxFit.cover,
                 placeholder: MemoryImage(kTransparentImage),
                 image: AlbumThumbnailProvider(
@@ -43,34 +43,33 @@ class AlbumWidget extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
-                alignment: Alignment.centerLeft,
-                padding: EdgeInsets.only(left: 2.0),
-                child: Text(
-                  "Album: ${_album.name}" ?? "Unnamed Album",
-                  maxLines: 1,
-                  textAlign: TextAlign.start,
-                  style: const TextStyle(
-                    height: 1.2,
-                    fontSize: 16,
-                  ),
-                )),
-            Container(
-              alignment: Alignment.centerLeft,
-              padding: EdgeInsets.only(left: 2.0),
-              child: Text(
-                _album.count != null ? "${_album.count}" : "0",
-                maxLines: 1,
-                textAlign: TextAlign.start,
-                style: const TextStyle(
-                  height: 1.2,
-                  fontSize: 12,
-                  color: Colors.grey,
-                ),
+          ),
+          Container(
+            alignment: Alignment.topLeft,
+            padding: EdgeInsets.only(left: 2.0),
+            child: Text(
+              _album.name ?? "Unnamed Album",
+              maxLines: 1,
+              textAlign: TextAlign.start,
+              style: TextStyle(
+                height: 1.2,
+                fontSize: 16,
               ),
-            )
-          ],
-        ),
+            ),
+          ),
+          Container(
+            alignment: Alignment.topLeft,
+            padding: EdgeInsets.only(left: 2.0),
+            child: Text(
+              _album.count.toString(),
+              textAlign: TextAlign.start,
+              style: TextStyle(
+                height: 1.2,
+                fontSize: 12,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
