@@ -16,7 +16,7 @@ class LocalDatasource implements IDatasource {
         .then((list) =>
             list.where((album) => album.name == "Screenshots").toList().first);
 
-    if (album != null) {
+    if (album != null && album.count > 0) {
       // Creacion de albumes segun apps
       RegExp expScreenshot = RegExp(
         r"Screenshot_\d{8}-\d{6}",
@@ -44,14 +44,15 @@ class LocalDatasource implements IDatasource {
           );
 
       // 3. Creacion de lista de nombres
-      photoList.forEach((photo) {
+      for (var photo in photoList) {
         albumNames.add(photo.albumID);
-      });
+      }
 
       var seen = Set<String>();
 
       albumNames =
           albumNames.where((albumName) => seen.add(albumName)).toList();
+      albumNames.sort();
 
       // 4. Crecion de albumes
       for (var album in albumNames) {

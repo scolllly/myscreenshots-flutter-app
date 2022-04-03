@@ -11,6 +11,10 @@ class AlbumWidget extends StatelessWidget {
   AlbumWidget({required IAlbum album}) : _album = album;
   @override
   Widget build(BuildContext context) {
+    final _albumName = _album.name;
+    final _albumCount = _album.photos.length;
+    final _albumPhotos = _album.photos;
+
     double gridWidth = (MediaQuery.of(context).size.width - 20) / 3;
     double gridHeight = gridWidth + 33;
     return GestureDetector(
@@ -19,7 +23,10 @@ class AlbumWidget extends StatelessWidget {
           MaterialPageRoute(
             builder: (context) {
               return AlbumPage(
-                  _album.id != null && _album.id != "" ? _album.id : 'Unnamed');
+                albumName: _albumName,
+                albumCount: _albumCount,
+                albumPhotos: _albumPhotos,
+              );
             },
           ),
         );

@@ -18,7 +18,6 @@ class AlbumStateNotifier extends StateNotifier<AlbumState> {
         (error) => throw LocalException(),
         (data) => state = AlbumState.data(data),
       );
-      ;
     } catch (_) {
       state = const AlbumState.error(message: "Error!");
     }
