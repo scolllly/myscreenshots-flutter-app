@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:myscreenshots/src/data/model/album_model.dart';
 import 'package:myscreenshots/src/domain/entity/album_entity.dart';
-import 'package:myscreenshots/src/presentation/logic/album/album_provider.dart';
 import 'package:photo_gallery/photo_gallery.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -38,8 +35,9 @@ class AlbumWidget extends StatelessWidget {
               child: FadeInImage(
                 fit: BoxFit.cover,
                 placeholder: MemoryImage(kTransparentImage),
-                image: AlbumThumbnailProvider(
-                  albumId: _album.photos.first.id ?? "0",
+                image: ThumbnailProvider(
+                  mediumId:
+                      _album.photos.isNotEmpty ? _album.photos.last.id : "0",
                   highQuality: true,
                 ),
               ),

@@ -31,21 +31,21 @@ class LocalDatasource implements IDatasource {
             (screenshotList) => screenshotList.items.forEach((screenshot) {
               photoList.add(PhotoModel(
                   id: screenshot.id,
-                  name: screenshot.filename ?? "Unnamed",
+                  name: screenshot.filename ?? "?",
                   type: "jpg",
                   width: 0,
                   height: 0,
-                  albumID: "1"));
+                  albumID: screenshot.filename
+                      .toString()
+                      .replaceAll(expScreenshot, "")
+                      .replaceAll(expFileType, "")
+                      .replaceAll("_", "")));
             }),
           );
 
       // 3. Creacion de lista de nombres
       photoList.forEach((photo) {
-        albumNames.add(photo.name
-            .toString()
-            .replaceAll(expScreenshot, "")
-            .replaceAll(expFileType, "")
-            .replaceAll("_", ""));
+        albumNames.add(photo.albumID);
       });
 
       var seen = Set<String>();
@@ -55,11 +55,16 @@ class LocalDatasource implements IDatasource {
 
       // 4. Crecion de albumes
       for (var album in albumNames) {
+        if (album.isEmpty) {
+          album = "?";
+        }
+
         listAlbums.add(AlbumModel(
             id: album,
             name: album,
             count: 0,
-            photos: photoList.where((photo) => photo.name == album).toList()));
+            photos:
+                photoList.where((photo) => photo.albumID == album).toList()));
       }
 
       return listAlbums;
