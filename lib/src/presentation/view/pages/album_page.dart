@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../widgets/photo_widget.dart';
 
 class AlbumPage extends StatelessWidget {
-  final int _index;
+  final String _index;
   final bool _isLoading = false;
   List<String> _listIds = ['1'];
 

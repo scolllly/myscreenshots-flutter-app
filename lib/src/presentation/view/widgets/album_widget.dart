@@ -21,7 +21,8 @@ class AlbumWidget extends StatelessWidget {
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) {
-              return AlbumPage(int.parse(_album.id ?? '0'));
+              return AlbumPage(
+                  _album.id != null && _album.id != "" ? _album.id : 'Unnamed');
             },
           ),
         );
@@ -38,7 +39,7 @@ class AlbumWidget extends StatelessWidget {
                 fit: BoxFit.cover,
                 placeholder: MemoryImage(kTransparentImage),
                 image: AlbumThumbnailProvider(
-                  albumId: _album.id ?? "0",
+                  albumId: _album.photos.first.id ?? "0",
                   highQuality: true,
                 ),
               ),
@@ -48,7 +49,7 @@ class AlbumWidget extends StatelessWidget {
             alignment: Alignment.topLeft,
             padding: EdgeInsets.only(left: 2.0),
             child: Text(
-              _album.name ?? "Unnamed Album",
+              _album.name,
               maxLines: 1,
               textAlign: TextAlign.start,
               style: TextStyle(
@@ -61,7 +62,7 @@ class AlbumWidget extends StatelessWidget {
             alignment: Alignment.topLeft,
             padding: EdgeInsets.only(left: 2.0),
             child: Text(
-              _album.count.toString(),
+              _album.photos.length.toString(),
               textAlign: TextAlign.start,
               style: TextStyle(
                 height: 1.2,
